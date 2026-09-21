@@ -32,7 +32,7 @@ public:
     LinkList(const LinkList& old);
 
 // methods for the linked list
-    //insert
+    //append and prepend
     void append(const string& data); 
     void prepend(const string& data);
 

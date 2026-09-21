@@ -32,13 +32,14 @@ LinkList::LinkList(const LinkList& old)
 }
 
 //Methods for the linked list
-//insert
-    //insert data after the tail
+
+//Append and Prepend
+    //append data after the tail
     void LinkList::append(const string& data)
     {
 
     } 
-    //insert data before the head
+    //prepend data before the head
     void LinkList::prepend(const string& data) 
     {
 
