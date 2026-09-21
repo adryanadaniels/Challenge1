@@ -9,6 +9,15 @@ struct Node
 {
     std::string data;
     Node* next;
+   
+
+    //contructor 
+    Node(string data)
+    {
+        data = data;
+        next = nullptr;
+        
+    };
 };
 
 class LinkList
