@@ -14,7 +14,7 @@ struct Node
     //contructor 
     Node(string data)
     {
-        data = data;
+        this->data = data;
         next = nullptr;
         
     };
