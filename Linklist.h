@@ -33,11 +33,11 @@ public:
 
 // methods for the linked list
     //insert
-    void append(const string& data); //insert data after the tail
-    void prepend(const string& data); //insert data before the head
+    void append(const string& data); 
+    void prepend(const string& data);
 
     //search
-    bool search (const string& data);
+    bool search (const string& data); 
 
     //removal
     bool remove(const string& data);
