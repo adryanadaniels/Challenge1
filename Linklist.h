@@ -45,7 +45,7 @@ public:
 
     //display 
     void display(ostream& out);
-    void diplayBack(ostream& out);
+    void displayBack(ostream& out);
 
 };
 #endif
