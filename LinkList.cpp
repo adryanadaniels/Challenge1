@@ -98,10 +98,38 @@ LinkList::LinkList(const LinkList& old)
 //removal
     bool LinkList::remove(const string& data)
     {
+        Node *tmp = head; // set the current node to the head
+        Node *prev = nullptr; // set the previous node to nullptr
+
+        while (tmp != nullptr) // loop while the node is still in the list
+            {
+                if (tmp->data == data) // if the data is found
+                {
+                    if (tmp == head) // check to see if we are deleting the head
+                    {
+                        head = tmp->next; // set head to the next node in the chain
+                    }
+                    else
+                    {
+                        prev->next = tmp->next; // set the previous node's next to the next node in the chain
+                    }
+                    if (tmp == tail) // check to see if we are deleting the tail
+                    {
+                        tail = prev; // set the tail to the previous node in the chain
+                    }
+                    delete tmp; // delete the current node
+                    return true;
+                }
+                prev = tmp; // set the previous node to the current node 
+                tmp = tmp->next; // set the current node to the next node in the chain
+            }
+            return false; // return false if the loop has exited without finding the data
 
     }
     bool LinkList::removeBack(const string& data)
     {
+
+       return false;
 
     }
 
@@ -110,9 +138,9 @@ LinkList::LinkList(const LinkList& old)
 //display 
     void LinkList::display(ostream& out)
     {
-
+        
     }
-    void LinkList::diplayBack(ostream& out)
+    void LinkList::displayBack(ostream& out)
     {
 
     }
