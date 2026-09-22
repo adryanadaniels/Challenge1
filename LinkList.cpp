@@ -1,4 +1,6 @@
 #include "Linklist.h"
+#include <iostream>
+
 
 
 
@@ -138,7 +140,12 @@ LinkList::LinkList(const LinkList& old)
 //display 
     void LinkList::display(ostream& out)
     {
-        
+        Node *tmp = head; // set the current tmp node to the head
+        while (tmp != nullptr) // loop while the node is still in the list
+        {
+            out << tmp->data << endl; // output the data stored in the current node
+            tmp = tmp->next; // set tmp to the next node in the chain 
+        }
     }
     void LinkList::displayBack(ostream& out)
     {
