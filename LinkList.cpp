@@ -70,7 +70,6 @@ LinkList::LinkList(const LinkList& old)
         head = tmp;
     }
 
-
 //Search
     //Find the data in the list
     bool LinkList::search (const string& data)
@@ -127,8 +126,6 @@ LinkList::LinkList(const LinkList& old)
        return false;
 
     }
-
-
 
 //display 
     void LinkList::display(ostream& out)
