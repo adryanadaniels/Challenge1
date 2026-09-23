@@ -76,19 +76,17 @@ LinkList::LinkList(const LinkList& old)
     bool LinkList::search (const string& data)
     {
       
-        Node* temp = head;
+        Node* tmp = head;
         //traverse through list with temporary pointer
-        while (temp != nullptr)
+        while (tmp != nullptr)
         {
-            if (temp->data == data)
+            if (tmp->data == data)
             {
-                cout << "data found" << endl;
                 return true;
             }
-            temp = temp->next;
+            tmp = tmp->next;
         }
         //if the list is empty or if the data is not found
-        cout << "data not found" << endl;
         return false;
     }
 
