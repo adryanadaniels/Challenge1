@@ -40,20 +40,19 @@ LinkList::LinkList(const LinkList& old)
     void LinkList::append(const string& data)
     {
         //create the newNode containing its data
-        Node* newNode = new Node(data);
+        Node* tmp = new Node(data);
 
         //What if the list is empty
         if (head == nullptr)
         {
-            head = newNode; 
-            tail = newNode;
+            head = tmp; 
         }
         //If not, append to tail
         else 
         {
-            tail->next = newNode; 
-            tail = newNode;
+            tail->next = tmp; 
         }
+        tail = tmp;
 
     } 
     //prepend data before the head
