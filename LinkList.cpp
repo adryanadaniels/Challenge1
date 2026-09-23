@@ -36,7 +36,6 @@ LinkList::LinkList(const LinkList& old)
 //Methods for the linked list
 
 //Append and Prepend
-    //append data after the tail
     void LinkList::append(const string& data)
     {
         //create the newNode containing its data
@@ -55,7 +54,6 @@ LinkList::LinkList(const LinkList& old)
         tail = tmp;
 
     } 
-    //prepend data before the head
     void LinkList::prepend(const string& data) 
     {
         Node* tmp = new Node(data);
@@ -71,7 +69,6 @@ LinkList::LinkList(const LinkList& old)
     }
 
 //Search
-    //Find the data in the list
     bool LinkList::search (const string& data)
     {
       
