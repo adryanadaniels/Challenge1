@@ -58,20 +58,16 @@ LinkList::LinkList(const LinkList& old)
     //prepend data before the head
     void LinkList::prepend(const string& data) 
     {
-        Node* newNode = new Node(data);
+        Node* tmp = new Node(data);
 
         //what if list is empty
         if(head == nullptr)
-        {
-            head = newNode; 
-            tail = newNode; 
+        { 
+            tail = tmp; 
         }
         //if not, prepend before head
-        else
-        {
-            newNode->next = head; 
-            head = newNode;
-        }
+        tmp->next = head;  
+        head = tmp;
     }
 
 
