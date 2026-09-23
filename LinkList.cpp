@@ -59,10 +59,16 @@ LinkList::LinkList(const LinkList& old)
     {
         Node* tmp = new Node(data);
 
+        tmp->prev = nullptr;        
+
         //what if list is empty
         if(head == nullptr)
         { 
             tail = tmp; 
+        }
+        else
+        {
+            head->prev = tmp;
         }
         //if not, prepend before head
         tmp->next = head;  
