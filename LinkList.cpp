@@ -40,6 +40,7 @@ LinkList::LinkList(const LinkList& old)
     {
         //create the newNode containing its data
         Node* tmp = new Node(data);
+        tmp->prev = tail;
 
         //What if the list is empty
         if (head == nullptr)
