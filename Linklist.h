@@ -7,17 +7,14 @@ using namespace std;
 
 struct Node
 {
-    std::string data;
+    string data;
     Node* next;
 
 
     //contructor 
-    Node(string data)
-    {
-        this->data = data;
-        next = nullptr;
-        
-    };
+    Node(): data(0), next(nullptr) {}
+    Node(int data): data(data), next(nullptr) {}
+    Node(int data, Node* next): data(data), next(next) {}
 };
 
 class LinkList
