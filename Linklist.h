@@ -12,9 +12,9 @@ struct Node
 
 
     //contructor 
-    Node(): data(0), next(nullptr) {}
-    Node(int data): data(data), next(nullptr) {}
-    Node(int data, Node* next): data(data), next(next) {}
+    Node(): data(""), next(nullptr) {}
+    Node(string data): data(data), next(nullptr) {}
+    Node(string data, Node* next): data(data), next(next) {}
 };
 
 class LinkList
