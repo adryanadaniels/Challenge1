@@ -141,6 +141,7 @@ LinkList::LinkList(const LinkList& old)
                     tail = nullptr;
                     return true;
                 }
+                //if node is tail
                 if (tmp == tail)
                 {
                     tail = tmp->prev;
@@ -149,6 +150,7 @@ LinkList::LinkList(const LinkList& old)
                         tail->next = nullptr;
                     }
                 }
+                //if node is head
                 if (tmp == head)
                 {
                     head = tmp->next;
@@ -157,9 +159,11 @@ LinkList::LinkList(const LinkList& old)
                         head->prev = nullptr;
                     }
                 }
+                //if node is in middle
                 else 
                 {
                     tmp->prev->next = tmp->next;
+                    tmp->next->prev = tmp->prev;
                 }
 
                 delete tmp;
