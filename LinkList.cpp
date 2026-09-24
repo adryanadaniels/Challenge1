@@ -128,7 +128,41 @@ LinkList::LinkList(const LinkList& old)
     }
     bool LinkList::removeBack(const string& data)
     {
+        Node* tmp = tail;
+        while (tmp != nullptr)
+        {
+            if (tmp->data == data) // only happens if the data is equal
+            {
+                //if there is only one node
+                if (tmp == tail && tmp == head)
+                {
+                    delete tmp;
+                    head = nullptr;
+                    tail = nullptr;
+                    return true;
+                }
+                if (tmp == tail)
+                {
+                    tail = tmp->prev;
+                    tail->next = nullptr;
+                }
+                if (tmp == head)
+                {
+                    head = tmp->next;
+                    head->prev = nullptr;
+                }
+                else 
+                {
+                    tmp->prev->next = tmp->next;
+                }
 
+                delete tmp;
+                return true;
+
+            }
+            tmp = tmp->prev;
+        }
+        
        return false;
 
     }
