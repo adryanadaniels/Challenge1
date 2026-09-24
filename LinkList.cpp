@@ -144,12 +144,18 @@ LinkList::LinkList(const LinkList& old)
                 if (tmp == tail)
                 {
                     tail = tmp->prev;
-                    tail->next = nullptr;
+                    if (tail != nullptr)
+                    {
+                        tail->next = nullptr;
+                    }
                 }
                 if (tmp == head)
                 {
                     head = tmp->next;
-                    head->prev = nullptr;
+                    if (head != nullptr)
+                    {
+                        head->prev = nullptr;
+                    }
                 }
                 else 
                 {
@@ -179,5 +185,10 @@ LinkList::LinkList(const LinkList& old)
     }
     void LinkList::displayBack(ostream& out)
     {
-
+        Node* tmp = tail; 
+        while (tmp!= nullptr)
+        {
+            out << tmp->data << endl; 
+            tmp = tmp->prev;
+        }
     }
