@@ -97,7 +97,6 @@ LinkList::LinkList(const LinkList& old)
     bool LinkList::remove(const string& data)
     {
         Node *tmp = head; // set the current node to the head
-        Node *prev = nullptr; // set the previous node to nullptr
 
         while (tmp != nullptr) // loop while the node is still in the list
             {
@@ -109,16 +108,19 @@ LinkList::LinkList(const LinkList& old)
                     }
                     else
                     {
-                        prev->next = tmp->next; // set the previous node's next to the next node in the chain
+                        tmp->prev->next = tmp->next; // set the previous node's next to the next node in the chain
                     }
                     if (tmp == tail) // check to see if we are deleting the tail
                     {
-                        tail = prev; // set the tail to the previous node in the chain
+                        tail = tmp->prev; // set the tail to the previous node in the chain
+                    }
+                    else
+                    {
+                        tmp->next->prev = tmp->prev;
                     }
                     delete tmp; // delete the current node
                     return true;
                 }
-                prev = tmp; // set the previous node to the current node 
                 tmp = tmp->next; // set the current node to the next node in the chain
             }
             return false; // return false if the loop has exited without finding the data
