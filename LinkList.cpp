@@ -58,7 +58,7 @@ LinkList::LinkList(const LinkList& old)
     void LinkList::prepend(const string& data) 
     {
         Node* tmp = new Node(data);
-        tmp->prev = nullptr;
+        //tmp->prev = nullptr;
 
         //what if list is empty
         if(head == nullptr)
@@ -135,36 +135,27 @@ LinkList::LinkList(const LinkList& old)
         {
             if (tmp->data == data) // only happens if the data is equal
             {
-                //if there is only one node
-                if (tmp == tail && tmp == head)
-                {
-                    delete tmp;
-                    head = nullptr;
-                    tail = nullptr;
-                    return true;
-                }
                 //if node is tail
                 if (tmp == tail)
                 {
                     tail = tmp->prev;
-                    if (tail != nullptr)
-                    {
-                        tail->next = nullptr;
-                    }
+                    //tail->next = nullptr;
+                    
+                }
+                else
+                {
+                    tmp->prev->next = tmp->next;
                 }
                 //if node is head
                 if (tmp == head)
                 {
                     head = tmp->next;
-                    if (head != nullptr)
-                    {
-                        head->prev = nullptr;
-                    }
+                    head->prev = nullptr;
+                    
                 }
                 //if node is in middle
-                else if (tmp != tail)
+                else
                 {
-                    tmp->prev->next = tmp->next;
                     tmp->next->prev = tmp->prev;
                 }
 
@@ -174,7 +165,6 @@ LinkList::LinkList(const LinkList& old)
             }
             tmp = tmp->prev;
         }
-        
        return false;
 
     }
