@@ -9,12 +9,13 @@ struct Node
 {
     string data;
     Node* next;
+    Node* prev;
 
 
     //contructor 
-    Node(): data(""), next(nullptr) {}
-    Node(string data): data(data), next(nullptr) {}
-    Node(string data, Node* next): data(data), next(next) {}
+    Node(): data(""), next(nullptr), prev(nullptr) {}
+    Node(string data): data(data), next(nullptr), prev(nullptr) {}
+    Node(string data, Node* next): data(data), next(next),prev(nullptr) {}
 };
 
 class LinkList
