@@ -45,7 +45,7 @@ LinkList::LinkList(const LinkList& old)
         //What if the list is empty
         if (head == nullptr)
         {
-            head = tmp; 
+            head->prev = tmp; 
         }
         //If not, append to tail
         else 
@@ -188,7 +188,7 @@ LinkList::LinkList(const LinkList& old)
             out << tmp->data << " "; // output the data stored in the current node
             tmp = tmp->next; // set tmp to the next node in the chain 
         }
-        cout << endl;
+        out << endl;
     }
     void LinkList::displayBack(ostream& out)
     {
@@ -198,5 +198,5 @@ LinkList::LinkList(const LinkList& old)
             out << tmp->data << " "; // output the data stored in the current node
             tmp = tmp->prev; // set tmp to the next node in the chain 
         }
-        cout << endl;
+        out << endl;
     }
