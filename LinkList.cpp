@@ -40,6 +40,7 @@ LinkList::LinkList(const LinkList& old)
     {
         //create the newNode containing its data
         Node* tmp = new Node(data);
+        tmp->prev = tail;
 
         //What if the list is empty
         if (head == nullptr)
@@ -57,11 +58,16 @@ LinkList::LinkList(const LinkList& old)
     void LinkList::prepend(const string& data) 
     {
         Node* tmp = new Node(data);
+        tmp->prev = nullptr;
 
         //what if list is empty
         if(head == nullptr)
         { 
             tail = tmp; 
+        }
+        else
+        {
+            head->prev = tmp->next;
         }
         //if not, prepend before head
         tmp->next = head;  
@@ -90,7 +96,7 @@ LinkList::LinkList(const LinkList& old)
     bool LinkList::remove(const string& data)
     {
         Node *tmp = head; // set the current node to the head
-        Node *prev = nullptr; // set the previous node to nullptr
+        //Node *prev = nullptr; // set the previous node to nullptr
 
         while (tmp != nullptr) // loop while the node is still in the list
             {
@@ -102,16 +108,20 @@ LinkList::LinkList(const LinkList& old)
                     }
                     else
                     {
-                        prev->next = tmp->next; // set the previous node's next to the next node in the chain
+                        tmp->prev->next = tmp->next; // set the previous node's next to the next node in the chain
                     }
                     if (tmp == tail) // check to see if we are deleting the tail
                     {
-                        tail = prev; // set the tail to the previous node in the chain
+                        tail = tmp->prev; // set the tail to the previous node in the chain
+                    }
+                    else
+                    {
+                        tmp->next->prev = tmp->prev;
                     }
                     delete tmp; // delete the current node
                     return true;
                 }
-                prev = tmp; // set the previous node to the current node 
+                //prev = tmp; // set the previous node to the current node 
                 tmp = tmp->next; // set the current node to the next node in the chain
             }
             return false; // return false if the loop has exited without finding the data
@@ -120,6 +130,51 @@ LinkList::LinkList(const LinkList& old)
     bool LinkList::removeBack(const string& data)
     {
 
+        Node* tmp = tail;
+        while (tmp != nullptr)
+        {
+            if (tmp->data == data) // only happens if the data is equal
+            {
+                //if there is only one node
+                if (tmp == tail && tmp == head)
+                {
+                    delete tmp;
+                    head = nullptr;
+                    tail = nullptr;
+                    return true;
+                }
+                //if node is tail
+                if (tmp == tail)
+                {
+                    tail = tmp->prev;
+                    if (tail != nullptr)
+                    {
+                        tail->next = nullptr;
+                    }
+                }
+                //if node is head
+                if (tmp == head)
+                {
+                    head = tmp->next;
+                    if (head != nullptr)
+                    {
+                        head->prev = nullptr;
+                    }
+                }
+                //if node is in middle
+                else if (tmp != tail)
+                {
+                    tmp->prev->next = tmp->next;
+                    tmp->next->prev = tmp->prev;
+                }
+
+                delete tmp;
+                return true;
+
+            }
+            tmp = tmp->prev;
+        }
+        
        return false;
 
     }
