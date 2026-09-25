@@ -183,16 +183,18 @@ LinkList::LinkList(const LinkList& old)
         Node *tmp = head; // set the current tmp node to the head
         while (tmp != nullptr) // loop while the node is still in the list
         {
-            out << tmp->data << endl; // output the data stored in the current node
+            out << tmp->data << " "; // output the data stored in the current node
             tmp = tmp->next; // set tmp to the next node in the chain 
         }
+        cout << endl;
     }
     void LinkList::displayBack(ostream& out)
     {
         Node* tmp = tail; 
         while (tmp!= nullptr)
         {
-            out << tmp->data << endl; 
+            out << tmp->data << " "; 
             tmp = tmp->prev;
         }
+        cout << endl;
     }
