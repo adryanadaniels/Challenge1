@@ -160,7 +160,7 @@ LinkList::LinkList(const LinkList& old)
                     }
                 }
                 //if node is in middle
-                else 
+                else if (tmp != tail)
                 {
                     tmp->prev->next = tmp->next;
                     tmp->next->prev = tmp->prev;
