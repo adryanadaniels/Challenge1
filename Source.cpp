@@ -91,7 +91,7 @@ int main()
 
 	LinkList ll;
 
-	bool worked = processFile(ll, "command.txt");
+	bool worked = processFile(ll, "dcommand.txt");
 
 	if (!worked)
 	{
