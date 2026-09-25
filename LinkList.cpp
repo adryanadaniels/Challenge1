@@ -136,18 +136,19 @@ LinkList::LinkList(const LinkList& old)
             if (tmp->data == data) // only happens if the data is equal
             {
                 //if node is tail
-                if (tmp == tail)
+                if (head == tail)
                 {
-                    tail = tmp->prev;
-                    //tail->next = nullptr;
-                    
+                    head = nullptr;
+                    tail = nullptr;
+    
                 }
-                else
+                else if (tmp == tail)
                 {
-                    tmp->prev->next = tmp->next;
+                    tail = tail->prev;
+                    tail->next = nullptr;
                 }
                 //if node is head
-                if (tmp == head)
+                else if (tmp == head)
                 {
                     head = tmp->next;
                     head->prev = nullptr;
@@ -157,6 +158,7 @@ LinkList::LinkList(const LinkList& old)
                 else
                 {
                     tmp->next->prev = tmp->prev;
+                    tmp->prev->next = tmp->next;
                 }
 
                 delete tmp;
