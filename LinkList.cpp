@@ -45,7 +45,7 @@ LinkList::LinkList(const LinkList& old)
         //What if the list is empty
         if (head == nullptr)
         {
-            head->prev = tmp; 
+            head = tmp;
         }
         //If not, append to tail
         else 
