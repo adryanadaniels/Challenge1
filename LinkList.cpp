@@ -67,7 +67,7 @@ LinkList::LinkList(const LinkList& old)
         }
         else
         {
-            head->prev = tmp->next;
+            head->prev = tmp;
         }
         //if not, prepend before head
         tmp->next = head;  
