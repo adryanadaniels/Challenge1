@@ -62,8 +62,8 @@ LinkList::LinkList(const LinkList& old)
 
         //what if list is empty
         if(head == nullptr)
-        { 
-            tail = tmp; 
+        {  
+            tail = tmp;
         }
         else
         {

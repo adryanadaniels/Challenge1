@@ -15,7 +15,7 @@ struct Node
     //contructor 
     Node(): data(""), next(nullptr), prev(nullptr) {}
     Node(string data): data(data), next(nullptr), prev(nullptr) {}
-    Node(string data, Node* next): data(data), next(next),prev(nullptr) {}
+    Node(string data, Node* next): data(data), next(next), prev(nullptr) {}
 };
 
 class LinkList
